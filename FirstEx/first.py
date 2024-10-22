@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
-from matplotlib.widgets import Slider
 
 from datetime import datetime, timedelta
 
@@ -54,31 +53,17 @@ def plot_exchange_rates(rates: dict, valute_name: str):
     fig, ax = plt.subplots(figsize=(10, 5))
     plt.subplots_adjust(bottom=0.25)
     
-    line, = ax.plot(dates, values, marker='o', linestyle='-', color='b')
+    line = ax.plot(dates, values, marker='o', color='b')
     ax.set_title(f'Курс {valute_name} за выбранный интервал')
     ax.set_xlabel('Дата')
     ax.set_ylabel('Курс')
     ax.set_xticklabels(dates, rotation=45)
     ax.grid()
 
-    # Создание слайдера
-    ax_slider = plt.axes([0.1, 0.1, 0.8, 0.03])
-    slider = Slider(ax_slider, 'Дата', 0, len(dates) - 1, valinit=0, valstep=1)
-
-    # Функция для обновления графика при изменении слайдера
-    def update(val):
-        idx = int(slider.val)
-        ax.set_xlim(idx - 5, idx + 5)  # Показываем 10 точек (5 до и 5 после)
-        ax.set_xticks(range(max(0, idx - 5), min(len(dates), idx + 6)))
-        ax.set_xticklabels(dates[max(0, idx - 5):min(len(dates), idx + 6)], rotation=45)
-        fig.canvas.draw_idle()
-
-    slider.on_changed(update)
-
     plt.show()
 
 def main():
-    first_date = "01/10/2024"
+    first_date = "10/09/2024"
     second_date = "10/10/2024"
 
     #print(show_valutes_name())
