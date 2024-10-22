@@ -78,7 +78,7 @@ def plot_exchange_rates(rates: dict, valute_name: str):
     plt.show()
 
 def main():
-    first_date = "01/08/2024"
+    first_date = "01/10/2024"
     second_date = "10/10/2024"
 
     #print(show_valutes_name())
