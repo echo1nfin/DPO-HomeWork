@@ -53,7 +53,7 @@ def plot_exchange_rates(rates: dict, valute_name: str):
     fig, ax = plt.subplots(figsize=(10, 5))
     plt.subplots_adjust(bottom=0.25)
     
-    line = ax.plot(dates, values, marker='o', color='b')
+    line = ax.plot(dates, values, marker='o', color='r')
     ax.set_title(f'Курс {valute_name} за выбранный интервал')
     ax.set_xlabel('Дата')
     ax.set_ylabel('Курс')
@@ -63,7 +63,7 @@ def plot_exchange_rates(rates: dict, valute_name: str):
     plt.show()
 
 def main():
-    first_date = "10/09/2024"
+    first_date = "10/10/2023"
     second_date = "10/10/2024"
 
     #print(show_valutes_name())
@@ -75,3 +75,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
